@@ -44,14 +44,35 @@ nav ul {
   font-weight: bold;
 }
 
-/*---------main content----------*/
+/* main content */
 
 main {
   padding: 20px;
+  margin: 20px;
 }
-.content img {
-  width: 200px;
+
+main img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+  border-radius: 10px;
 }
+
+h2,
+h3 {
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+ol {
+  /* list of elements */
+  margin-left: 20px;
+}
+
 .footer {
   background-color: #333;
   color: white;
