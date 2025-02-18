@@ -63,7 +63,14 @@
     </main>
 
     <!-- Inaccessible Modal -->
-    <div id="myModal" class="modal">
+    <div
+      id="myModal"
+      class="modal"
+      role="dialog"
+      aria-labelledby="modal-title"
+      aria-modal="true"
+      tabindex="-1"
+    >
       <div class="modal-content">
         <button class="close" aria-label="Close modal" onclick="closeModal()">
           ×
