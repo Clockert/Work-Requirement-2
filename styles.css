@@ -49,7 +49,7 @@ nav ul {
 main {
   padding: 20px;
   margin: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 0px;
 }
 
 main img {
@@ -86,6 +86,8 @@ footer {
   padding: 10px;
 }
 
+/* modal */
+
 .modal {
   display: none;
   position: fixed;
@@ -98,6 +100,7 @@ footer {
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
   padding-top: 60px;
+  border-radius: 10px;
 }
 .modal-content {
   background-color: #fefefe;
