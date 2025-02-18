@@ -11,6 +11,17 @@ body {
   color: #333;
   background-color: #f4f4f4;
 }
+
+/* styling of the links */
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 .header {
   background-color: #f4f4f4;
   padding: 20px;
