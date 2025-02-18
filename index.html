@@ -1,80 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Saturn</title>
-</head>
-<body>
-
-
+  </head>
+  <body>
     <!-- Header and navigation -->
 
-
-<header>
-    <h1>Saturn</h1>
-    <nav aria-label="Main navigation">
+    <header>
+      <h1>Saturn</h1>
+      <nav aria-label="Main navigation">
         <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
-    </nav>
-</header>
+      </nav>
+    </header>
 
-<content>
-  <img
-    src="https://plus.unsplash.com/premium_photo-1717460700790-5199c828e0c7?q=80&w=1869&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-  />
-  <div/>
-    <p>This is an image of Saturn, the sixth planet from the Sun.</p>
-  </div>
-  <p>This is a sample paragraph. It contains some text about Saturn.</p>
-  <div>
-    <h2>Saturn's Rings</h2>
-      Saturn is well known for its prominent ring system, which is composed
-      mostly of ice particles with a smaller amount of rocky debris and dust.
-    </p>
-  </div>
-  <div>
-    <h4>Moons of Saturn</h4>
-    <p>
-      Saturn has 82 moons. The largest moon, Titan, is larger than the planet
-      Mercury.
-    </p>
-  </div>
-  <div>
-    <h4>Atmosphere of Saturn</h4>
-    <p>
-      Saturn's atmosphere is primarily composed of hydrogen and helium, with
-      trace amounts of other elements.
-    </p>
-    <div>
-      Here is a list of some of Saturn's moons:
-      <ol>
-        <li>Titan</li>
-        <li>Rhea</li>
-        <li>Iapetus</li>
-        <li>Dione</li>
-        <li>Enceladus</li>
-      </ol>
+    <!-- Main content -->
+
+    <main>
+      <img
+        src="https://plus.unsplash.com/premium_photo-1717460700790-5199c828e0c7?q=80&w=1869&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt="An image of Saturn, the sixth planet from the Sun."
+      />
+      <p>This is a sample paragraph. It contains some text about Saturn.</p>
+      <section>
+        <h2>Saturn's Rings</h2>
+        <p>
+          Saturn is well known for its prominent ring system, which is composed
+          mostly of ice particles with a smaller amount of rocky debris and
+          dust.
+        </p>
+      </section>
+      <section>
+        <h3>Moons of Saturn</h3>
+        <p>
+          Saturn has 82 moons. The largest moon, Titan, is larger than the
+          planet Mercury.
+        </p>
+      </section>
+      <section>
+        <h3>Atmosphere of Saturn</h3>
+        <p>
+          Saturn's atmosphere is primarily composed of hydrogen and helium, with
+          trace amounts of other elements.
+        </p>
+        <ol>
+          <li>Titan</li>
+          <li>Rhea</li>
+          <li>Iapetus</li>
+          <li>Dione</li>
+          <li>Enceladus</li>
+        </ol>
+      </section>
+    </main>
+
+    <!-- Inaccessible Modal -->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <button class="close">&times;</button>
+        <h2>Subscribe to our Newsletter</h2>
+        <p>Get the latest updates about Saturn and other planets.</p>
+        <form>
+          <input type="text" placeholder="Enter your email" />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
     </div>
-  </div>
-</content>
-<!-- Inaccessible Modal -->
-<div id="myModal" class="modal">
-  <div class="modal-content">
-    <button class="close">&times;</button>
-    <h2>Subscribe to our Newsletter</h2>
-    <p>Get the latest updates about Saturn and other planets.</p>
-    <form>
-      <input type="text" placeholder="Enter your email" />
-      <button type="submit">Subscribe</button>
-    </form>
-  </div>
-</div>
-<div class="footer" id="contact">
-  <p>© 2024 My Website</p>
-</div>
-</body>
+    <div class="footer" id="contact">
+      <p>© 2024 My Website</p>
+    </div>
+  </body>
 </html>
