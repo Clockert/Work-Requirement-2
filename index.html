@@ -65,21 +65,14 @@
       </section>
     </main>
 
-    <!-- Inaccessible Modal -->
-    <div
-      id="myModal"
-      class="modal"
-      role="dialog"
-      aria-labelledby="modal-title"
-      aria-modal="true"
-      tabindex="-1"
-    >
+    <!-- Accessible Modal -->
+    <dialog id="myModal" aria-labelledby="modal-title">
       <div class="modal-content">
         <button class="close" aria-label="Close modal" onclick="closeModal()">
           ×
         </button>
 
-        <h2>Subscribe to our Newsletter</h2>
+        <h2 id="modal-title">Subscribe to our Newsletter</h2>
         <p>Get the latest updates about Saturn and other planets.</p>
 
         <form>
@@ -93,7 +86,7 @@
           <button type="submit">Subscribe</button>
         </form>
       </div>
-    </div>
+    </dialog>
 
     <!-- Footer -->
 
