@@ -1,44 +1,76 @@
-// Select the modal and button elements
-var modal = document.getElementById("myModal");
+// Select the dialog and button elements
+var dialog = document.getElementById("subscribeDialog");
 var closeBtn = document.getElementsByClassName("close")[0];
-var actionButton = document.getElementById("SubscribeButton"); // New button to trigger the modal
+var actionButton = document.getElementById("SubscribeButton"); // New button to trigger the dialog
 
-// Function to show the modal
-function showModal() {
-  if (modal.style.display !== "block") {
-    modal.style.display = "block";
-    modal.setAttribute("aria-hidden", "false"); // Update ARIA attribute for accessibility
-    modal.focus(); // Set focus to the modal for keyboard navigation
+// Function to show the dialog
+function showDialog() {
+  if (!dialog.open) {
+    dialog.showModal();
+    dialog.setAttribute("aria-hidden", "false"); // Update ARIA attribute for accessibility
   }
 }
 
-// Show the modal when the button is clicked
-actionButton.addEventListener("click", showModal);
+// Show the dialog when the button is clicked
+actionButton.addEventListener("click", showDialog);
 
-// Close the modal when the close button is clicked
+// Close the dialog when the close button is clicked
 closeBtn.onclick = function () {
-  closeModal();
+  closeDialog();
 };
 
-// Close the modal when clicking outside of it
-window.onclick = function (event) {
-  if (event.target == modal) {
-    closeModal();
-  }
-};
-
-// Close the modal when the Escape key is pressed
-document.addEventListener("keydown", function (event) {
-  if (event.key === "Escape" && modal.style.display === "block") {
-    closeModal();
+// Close the dialog when clicking outside of it
+dialog.addEventListener("click", function (event) {
+  if (event.target === dialog) {
+    closeDialog();
   }
 });
 
-// Function to close the modal
-function closeModal() {
-  if (modal.style.display === "block") {
-    modal.style.display = "none";
-    modal.setAttribute("aria-hidden", "true"); // Update ARIA attribute for accessibility
-    actionButton.focus(); // Return focus to the button that opened the modal
+// Close the dialog when the Escape key is pressed
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape" && dialog.open) {
+    closeDialog();
   }
+});
+
+// Function to close the dialog
+function closeDialog() {
+  if (dialog.open) {
+    dialog.close();
+    dialog.setAttribute("aria-hidden", "true"); // Update ARIA attribute for accessibility
+    actionButton.focus(); // Return focus to the button that opened the dialog
+  }
+}
+
+// Function to handle form submission
+function handleFormSubmit(event) {
+  event.preventDefault();
+  var emailInput = document.getElementById("emailInput").value;
+  if (validateEmail(emailInput)) {
+    alert("Thank you for subscribing!");
+    closeDialog();
+  } else {
+    alert("Please enter a valid email address.");
+  }
+}
+
+// Function to handle contact form submission
+function handleContactFormSubmit(event) {
+  event.preventDefault();
+  var name = document.getElementById("contactName").value;
+  var email = document.getElementById("contactEmail").value;
+  var message = document.getElementById("contactMessage").value;
+
+  if (validateEmail(email)) {
+    alert("Thank you for your message, " + name + "!");
+    document.getElementById("contactForm").reset();
+  } else {
+    alert("Please enter a valid email address.");
+  }
+}
+
+// Function to validate email
+function validateEmail(email) {
+  var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(email);
 }

@@ -12,7 +12,7 @@ body {
   background-color: #ffffff;
 }
 
-/* styling links */
+/* Styling links */
 a {
   text-decoration: none;
   color: #333;
@@ -22,8 +22,12 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Header styling */
+a:focus {
+  outline: 2px solid #333;
+  outline-offset: 2px;
+}
 
+/* Header styling */
 header {
   background-color: #f4f4f4;
   padding: 20px;
@@ -44,8 +48,32 @@ nav ul {
   font-weight: bold;
 }
 
-/* main content */
+#SubscribeButton {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin: 10px;
+  transition: background-color 0.3s ease;
+}
 
+#SubscribeButton:hover {
+  background-color: #8b450f;
+}
+
+#SubscribeButton:active {
+  background-color: #111;
+}
+
+#SubscribeButton:focus {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* Main content */
 main {
   padding: 20px;
   margin: 20px;
@@ -70,12 +98,10 @@ p {
 }
 
 ol {
-  /* list of elements */
   margin-left: 20px;
 }
 
-/* footer styling */
-
+/* Footer styling */
 footer {
   background-color: #333;
   color: white;
@@ -86,36 +112,89 @@ footer {
   padding: 10px;
 }
 
-/* modal */
-
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
-  padding-top: 60px;
-  border-radius: 10px;
+footer form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  max-width: 600px;
+  margin: 0 auto;
 }
-.modal-content {
+
+footer label {
+  margin-top: 10px;
+  width: 100%;
+  text-align: left;
+}
+
+footer input,
+footer textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+footer button {
+  background-color: #8b450f;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+footer button:hover {
+  background-color: #555;
+}
+
+footer button:active {
+  background-color: #111;
+}
+
+footer button:focus {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+footer p {
+  margin-top: 20px;
+}
+
+/* Dialog */
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+dialog {
+  border: none;
+  border-radius: 10px;
+  padding: 0;
+  width: 80%;
+  max-width: 600px;
+  margin: auto;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.dialog-content {
   background-color: #fefefe;
-  margin: 5% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
 }
+
 .close {
   color: #aaa;
   float: right;
-  font-size: 28px;
+  font-size: 20px;
   font-weight: bold;
   cursor: pointer;
 }
+
 .close:hover,
 .close:focus {
   color: black;

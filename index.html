@@ -15,7 +15,7 @@
       <nav aria-label="Main navigation" role="navigation">
         <ul>
           <li><a href="#home">Home</a></li>
-          <li><a href="#aboutSaturn">About</a></li>
+          <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -29,7 +29,7 @@
         src="https://plus.unsplash.com/premium_photo-1717460700790-5199c828e0c7?q=80&w=1869&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         alt="An image of Saturn, the sixth planet from the Sun."
       />
-      <a id="aboutSaturn"></a>
+      <a id="about"></a>
       <p>This is a sample paragraph. It contains some text about Saturn.</p>
       <section>
         <h2>Saturn's Rings</h2>
@@ -64,24 +64,22 @@
       </section>
     </main>
 
-    <!-- Inaccessible Modal -->
-    <div
-      id="myModal"
-      class="modal"
+    <!-- Accessible Dialog -->
+    <dialog
+      id="subscribeDialog"
+      aria-labelledby="dialog-title"
       role="dialog"
-      aria-labelledby="modal-title"
       aria-modal="true"
-      tabindex="-1"
     >
-      <div class="modal-content">
-        <button class="close" aria-label="Close modal" onclick="closeModal()">
+      <div class="dialog-content">
+        <button class="close" aria-label="Close dialog" onclick="closeDialog()">
           ×
         </button>
 
-        <h2>Subscribe to our Newsletter</h2>
+        <h2 id="dialog-title">Subscribe to our Newsletter</h2>
         <p>Get the latest updates about Saturn and other planets.</p>
 
-        <form>
+        <form onsubmit="handleFormSubmit(event)">
           <label for="emailInput">Enter your email:</label>
           <input
             id="emailInput"
@@ -92,11 +90,28 @@
           <button type="submit">Subscribe</button>
         </form>
       </div>
-    </div>
+    </dialog>
 
     <!-- Footer -->
 
     <footer id="contact">
+      <form id="contactForm" onsubmit="handleContactFormSubmit(event)">
+        <label for="contactName">Name:</label>
+        <input type="text" id="contactName" name="contactName" required />
+
+        <label for="contactEmail">Email:</label>
+        <input type="email" id="contactEmail" name="contactEmail" required />
+
+        <label for="contactMessage">Message:</label>
+        <textarea
+          id="contactMessage"
+          name="contactMessage"
+          rows="4"
+          required
+        ></textarea>
+
+        <button type="submit">Send</button>
+      </form>
       <p>© 2024 My Website</p>
     </footer>
     <script src="script.js"></script>
