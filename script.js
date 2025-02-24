@@ -5,9 +5,10 @@ var actionButton = document.getElementById("SubscribeButton"); // New button to 
 
 // Function to show the modal
 function showModal() {
-  if (!modal.open) {
-    modal.showModal();
+  if (modal.style.display !== "block") {
+    modal.style.display = "block";
     modal.setAttribute("aria-hidden", "false"); // Update ARIA attribute for accessibility
+    modal.focus(); // Set focus to the modal for keyboard navigation
   }
 }
 
@@ -20,23 +21,23 @@ closeBtn.onclick = function () {
 };
 
 // Close the modal when clicking outside of it
-modal.addEventListener("click", function (event) {
-  if (event.target === modal) {
+window.onclick = function (event) {
+  if (event.target == modal) {
     closeModal();
   }
-});
+};
 
 // Close the modal when the Escape key is pressed
 document.addEventListener("keydown", function (event) {
-  if (event.key === "Escape" && modal.open) {
+  if (event.key === "Escape" && modal.style.display === "block") {
     closeModal();
   }
 });
 
 // Function to close the modal
 function closeModal() {
-  if (modal.open) {
-    modal.close();
+  if (modal.style.display === "block") {
+    modal.style.display = "none";
     modal.setAttribute("aria-hidden", "true"); // Update ARIA attribute for accessibility
     actionButton.focus(); // Return focus to the button that opened the modal
   }
