@@ -15,14 +15,21 @@
 
     <header>
       <h1>Saturn</h1>
-      <nav aria-label="Main navigation" role="navigation">
-        <ul>
-          <li><a href="#home" tabindex="0">Home</a></li>
-          <li><a href="#about" tabindex="0">About</a></li>
-          <li><a href="#contact" tabindex="0">Contact</a></li>
-        </ul>
-      </nav>
-      <button id="SubscribeButton" tabindex="0">Subscribe</button>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <div class="nav-container">
+        <nav aria-label="Main navigation" role="navigation">
+          <ul>
+            <li><a href="#home" tabindex="0">Home</a></li>
+            <li><a href="#about" tabindex="0">About</a></li>
+            <li><a href="#contact" tabindex="0">Contact</a></li>
+          </ul>
+        </nav>
+        <button id="SubscribeButton" tabindex="0">Subscribe</button>
+      </div>
     </header>
 
     <!-- Main content -->
@@ -33,7 +40,10 @@
         alt="An image of Saturn, the sixth planet from the Sun."
       />
       <a id="about"></a>
-      <p>This is a sample paragraph. It contains some text about Saturn.</p>
+      <section tabindex="0">
+        <h1>About Saturn</h1>
+        <p>This is a sample paragraph. It contains some text about Saturn.</p>
+      </section>
       <section tabindex="0">
         <h2>Saturn's Rings</h2>
         <p>
