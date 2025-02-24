@@ -12,11 +12,6 @@ function showModal() {
   }
 }
 
-// Show the modal after a delay when the page loads
-window.onload = function () {
-  setTimeout(showModal, 2000); // Show modal after 2 seconds
-};
-
 // Show the modal when the button is clicked
 actionButton.addEventListener("click", showModal);
 
