@@ -42,7 +42,7 @@ function closeDialog() {
   }
 }
 
-// Function to handle form submission
+// Function to handle subscription form
 function handleFormSubmit(event) {
   event.preventDefault();
   var emailInput = document.getElementById("emailInput").value;
