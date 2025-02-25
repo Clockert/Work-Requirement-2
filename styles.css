@@ -131,6 +131,15 @@ nav a:hover::after {
   width: 100%;
 }
 
+/* Offset for fixed header, to show all of the content under the header when usin anchor tags */
+[id]::before {
+  content: "";
+  display: block;
+  height: 140px; /* Adjust this for header height */
+  margin-top: -140px; /* Adjust this for header height */
+  visibility: hidden;
+}
+
 /* Buttons */
 #SubscribeButton {
   background-color: #8b450f;
