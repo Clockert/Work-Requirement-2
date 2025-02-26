@@ -63,7 +63,7 @@ a {
   color: #333;
 }
 
-a:focus {
+a:focus-visible {
   outline: 2px solid #333;
   outline-offset: 2px;
 }
