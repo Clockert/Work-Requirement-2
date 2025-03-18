@@ -136,29 +136,15 @@ header {
         </code></pre>
 
         <div class="note">
-          <h4>Understanding Position: sticky</h4>
-          <ul>
-            <li>The header stays visible when scrolling</li>
-            <li>Helps users access navigation at any time</li>
-            <li>Requires a specified <code>top</code> value</li>
-            <li>
-              Needs proper <code>z-index</code> to stay above other content
-            </li>
-          </ul>
-        </div>
+          <h4>Handling Scroll Offset</h4>
+          <p>
+            When using anchor links with a sticky header, we need to prevent
+            content from being hidden behind the header. There are two
+            approaches:
+          </p>
 
-        <h4>Impact on Content Below Header</h4>
-        <p>Because the header is sticky, we need to:</p>
-        <ul>
-          <li>Add proper spacing below the header</li>
-          <li>
-            Ensure content doesn't hide behind the header when using anchor
-            links
-          </li>
-          <li>Account for the header's height in layout calculations</li>
-        </ul>
-        <pre><code>
-/* Offset for fixed header */
+          <h5>1. Traditional Method (Better Browser Support):</h5>
+          <pre><code>
 [id]::before {
     content: "";
     display: block;
@@ -166,7 +152,30 @@ header {
     margin-top: -80px;
     visibility: hidden;
 }
-        </code></pre>
+          </code></pre>
+          <p>
+            This creates an invisible space above elements with IDs, pushing the
+            content down.
+          </p>
+
+          <h5>2. Modern Method:</h5>
+          <pre><code>
+[id] {
+    scroll-margin-top: 80px;  /* Modern browsers only */
+}
+          </code></pre>
+          <p>This is a cleaner solution but only works in modern browsers.</p>
+
+          <h5>Why We Use Both:</h5>
+          <ul>
+            <li>The <code>::before</code> method works in all browsers</li>
+            <li>
+              <code>scroll-margin-top</code> is simpler but has less support
+            </li>
+            <li>Using both ensures the best experience for all users</li>
+            <li>The browser will use whichever method it supports</li>
+          </ul>
+        </div>
       </div>
 
       <h2>2. Basic Layout Structure</h2>
@@ -479,6 +488,172 @@ fetch('navigation.html')
             <li>Better for team collaboration</li>
           </ul>
         </div>
+      </div>
+
+      <h2>8. Complete Code Reference</h2>
+      <div class="example">
+        <h3>HTML Structure</h3>
+        <pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Saturn&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;a href="#main-content" class="skip-link"&gt;Skip to main content&lt;/a&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Saturn&lt;/h1&gt;
+        &lt;button class="hamburger" aria-label="Toggle menu" aria-expanded="false"&gt;
+            &lt;span class="hamburger-line"&gt;&lt;/span&gt;
+            &lt;span class="hamburger-line"&gt;&lt;/span&gt;
+            &lt;span class="hamburger-line"&gt;&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;div class="nav-container"&gt;
+            &lt;nav aria-label="Main navigation" role="navigation"&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="#home"&gt;Home&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#about"&gt;About&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/nav&gt;
+            &lt;button id="SubscribeButton"&gt;Subscribe&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/header&gt;
+    &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+        <h3>CSS Styles</h3>
+        <pre><code>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background: #e8e8e8;
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 5px 10px;
+    position: relative;
+    text-decoration: none;
+    color: #333;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #8b450f;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.hamburger-line {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px 0;
+    background-color: #333;
+    transition: transform 0.3s ease;
+}
+
+[id] {
+    scroll-margin-top: 80px;
+}
+
+@media screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+    .nav-container {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #f4f4f4;
+        flex-direction: column;
+        padding: 20px;
+        transform: translateY(-150%);
+        transition: transform 0.3s ease;
+    }
+    .nav-container.active {
+        transform: translateY(0);
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+}</code></pre>
+
+        <h3>JavaScript</h3>
+        <pre><code>
+const hamburger = document.querySelector('.hamburger');
+const navContainer = document.querySelector('.nav-container');
+
+hamburger.addEventListener('click', () => {
+    const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+    hamburger.setAttribute('aria-expanded', !isExpanded);
+    navContainer.classList.toggle('active');
+    hamburger.classList.toggle('active');
+});
+
+document.addEventListener('click', (e) => {
+    if (!hamburger.contains(e.target) && !navContainer.contains(e.target)) {
+        navContainer.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.classList.remove('active');
+    }
+});</code></pre>
       </div>
 
       <div class="note">
