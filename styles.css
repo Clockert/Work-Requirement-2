@@ -128,24 +128,12 @@ nav a:hover::after {
 }
 
 /* Offset for fixed header, to show all of the content under the header when usin anchor tags */
-header::before {
-  content: "";
-  display: block;
-  height: 80px;
-  margin-top: -80px;
-  visibility: hidden;
-}
-
 [id]::before {
   content: "";
   display: block;
-  height: 80px;
-  margin-top: -80px;
+  height: 140px; /* Adjust this for header height */
+  margin-top: -140px; /* Adjust this for header height */
   visibility: hidden;
-}
-
-[id] {
-  scroll-margin-top: 80px; /* Modern browsers support this */
 }
 
 /* Buttons */
