@@ -64,6 +64,21 @@
     <main id="main-content">
       <h1>Understanding Website Layout and Navigation</h1>
 
+      <nav class="table-of-contents">
+        <h2>Table of Contents:</h2>
+        <ol>
+          <li><a href="#document-structure">Document Structure and Base Styles</a></li>
+          <li><a href="#header-structure">Header Structure and Its Children</a></li>
+          <li><a href="#layout-structure">Basic Layout Structure and Flexbox</a></li>
+          <li><a href="#css-styling">CSS Styling for Header Children</a></li>
+          <li><a href="#hamburger-menu">The Hamburger Menu</a></li>
+          <li><a href="#accessibility">Making it Accessible</a></li>
+          <li><a href="#responsive">Responsive Design</a></li>
+          <li><a href="#best-practices">Code Organization Best Practices</a></li>
+          <li><a href="#complete-code">Complete Code Reference</a></li>
+        </ol>
+      </nav>
+
       <div class="note">
         <strong>What are we building?</strong>
         <p>We're creating a website header that has:</p>
@@ -76,7 +91,7 @@
         </ul>
       </div>
 
-      <h2>1. Document Structure and Base Styles</h2>
+      <h2 id="document-structure">1. Document Structure and Base Styles</h2>
       <div class="example">
         <h3>Reset and Base Styles</h3>
         <p>
@@ -178,29 +193,7 @@ header {
         </div>
       </div>
 
-      <h2>2. Basic Layout Structure</h2>
-      <p>Think of the header like a box that has two main parts:</p>
-      <ul>
-        <li>Left side: Website title ("Saturn")</li>
-        <li>Right side: Navigation menu and Subscribe button</li>
-      </ul>
-
-      <div class="example">
-        <h3>How We Position Things (Flexbox)</h3>
-        <p>
-          We use something called "flexbox" to arrange items. It's like having a
-          smart container that knows how to organize things inside it.
-        </p>
-        <pre><code>
-header {
-    display: flex;                /* Turns on flexbox positioning */
-    justify-content: space-between; /* Pushes items apart (title to left, nav to right) */
-    align-items: center;          /* Centers items vertically */
-}
-        </code></pre>
-      </div>
-
-      <h2>3. Header Structure and Its Children</h2>
+      <h2 id="header-structure">2. Header Structure and Its Children</h2>
       <div class="example">
         <h3>Header's Family Tree</h3>
         <p>The header element contains three main children:</p>
@@ -264,6 +257,29 @@ header {
         </div>
       </div>
 
+      <h2 id="layout-structure">3. Basic Layout Structure and Flexbox</h2>
+      <p>Think of the header like a box that has two main parts:</p>
+      <ul>
+        <li>Left side: Website title ("Saturn")</li>
+        <li>Right side: Navigation menu and Subscribe button</li>
+      </ul>
+
+      <div class="example">
+        <h3>How We Position Things (Flexbox)</h3>
+        <p>
+          We use something called "flexbox" to arrange items. It's like having a
+          smart container that knows how to organize things inside it.
+        </p>
+        <pre><code>
+header {
+    display: flex;                /* Turns on flexbox positioning */
+    justify-content: space-between; /* Pushes items apart (title to left, nav to right) */
+    align-items: center;          /* Centers items vertically */
+}
+        </code></pre>
+      </div>
+
+      <h2 id="css-styling">4. CSS Styling for Header Children</h2>
       <div class="example">
         <h3>CSS for Header Children</h3>
         <p>Each child element in the header needs specific styling:</p>
@@ -342,7 +358,7 @@ nav a {
         </div>
       </div>
 
-      <h2>4. The Hamburger Menu Explained</h2>
+      <h2 id="hamburger-menu">5. The Hamburger Menu</h2>
       <p>
         The "hamburger menu" (☰) is a button that shows up on mobile devices.
         It's called this because it looks like a hamburger with three lines!
@@ -376,7 +392,7 @@ nav a {
         </ol>
       </div>
 
-      <h2>5. Making it Accessible</h2>
+      <h2 id="accessibility">6. Making it Accessible</h2>
       <p>
         We make our menu usable for everyone, including people using screen
         readers:
@@ -392,7 +408,7 @@ nav a {
         </li>
       </ul>
 
-      <h2>6. Responsive Design</h2>
+      <h2 id="responsive">7. Responsive Design</h2>
       <div class="example">
         <p>Our website changes based on screen size:</p>
         <ul>
@@ -415,7 +431,7 @@ nav a {
       </div>
 
       <!-- Add before the Key Terms section -->
-      <h2>7. Bonus information - Code Organization Best Practices</h2>
+      <h2 id="best-practices">8. Bonus - Code Organization Best Practices</h2>
       <div class="example">
         <h3>Separating Navigation Code</h3>
         <p>
@@ -490,7 +506,7 @@ fetch('navigation.html')
         </div>
       </div>
 
-      <h2>8. Complete Code Reference</h2>
+      <h2 id="complete-code">9. Complete Code Reference</h2>
       <div class="example">
         <h3>HTML Structure</h3>
         <pre><code>
@@ -663,7 +679,7 @@ document.addEventListener('click', (e) => {
             <strong>Flexbox:</strong> A CSS layout system that helps arrange
             items
           </li>
-          <li>
+          <li></li>
             <strong>Hamburger Menu:</strong> The three-line button (☰) for
             mobile navigation
           </li>
