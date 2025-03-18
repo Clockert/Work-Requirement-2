@@ -506,6 +506,83 @@ fetch('navigation.html')
         </div>
       </div>
 
+      <!-- Add before the Complete Code Reference section -->
+
+      <h2 id="advanced-css">Advanced CSS Concepts</h2>
+      <div class="example">
+        <h3>Transforms and Transitions</h3>
+        <p>We use transforms for smooth animations:</p>
+        <pre><code>
+.nav-container {
+    transform: translateY(-150%);    /* Moves element up and out of view */
+    transition: transform 0.3s ease; /* Makes the movement smooth */
+}
+
+.nav-container.active {
+    transform: translateY(0);        /* Moves element back into view */
+}</code></pre>
+        <div class="note">
+          <h4>Why Use Transform?</h4>
+          <ul>
+            <li>Better performance than animating position properties</li>
+            <li>Smoother animations</li>
+            <li>Hardware acceleration in modern browsers</li>
+          </ul>
+        </div>
+
+        <h3>Pseudo-elements and States</h3>
+        <p>We use these for interactive elements:</p>
+        <pre><code>
+nav a::after {                    /* Creates underline effect */
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #8b450f;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {              /* Shows underline on hover */
+    width: 100%;
+}
+
+#SubscribeButton:focus {          /* Shows focus ring for accessibility */
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(139, 69, 15, 0.4);
+}</code></pre>
+
+        <h3>Box Shadow Explained</h3>
+        <p>Breaking down the shadow properties:</p>
+        <pre><code>
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+/*         │ │   │   └─ Color with opacity
+           │ │   └───── Blur radius
+           │ └───────── Vertical offset
+           └─────────── Horizontal offset */</code></pre>
+
+        <h3>Understanding Z-index</h3>
+        <p>Z-index controls layering of elements:</p>
+        <pre><code>
+header {
+    z-index: 100;    /* Header stays above other content */
+}
+
+.dialog {
+    z-index: 1000;   /* Dialog appears above header */
+}</code></pre>
+        <div class="note">
+          <h4>CSS Units Guide:</h4>
+          <ul>
+            <li><strong>rem:</strong> Relative to root font size (html element)</li>
+            <li><strong>em:</strong> Relative to parent element's font size</li>
+            <li><strong>px:</strong> Fixed size, use for borders and small details</li>
+            <li><strong>%:</strong> Relative to parent element's size</li>
+          </ul>
+        </div>
+      </div>
+
       <h2 id="complete-code">9. Complete Code Reference</h2>
       <div class="example">
         <h3>HTML Structure</h3>
